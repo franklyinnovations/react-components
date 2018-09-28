@@ -56,6 +56,7 @@ import '../src/DatePicker/datePicker.scss';
 import '../src/DateField/dateField.scss';
 import '../src/Input/input.scss';
 import '../src/FormField/formField.scss';
+import '../src/TextArea/textArea.scss';
 
 // examples sass and resources
 import '../src/Modal/examples.scss';
