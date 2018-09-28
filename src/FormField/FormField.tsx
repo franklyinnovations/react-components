@@ -35,6 +35,7 @@ export const Props = {
   children: ReactChildren,
   fieldId: t.maybe(t.String),
   viewProps: t.maybe(t.Object),
+  horizontal: t.maybe(t.Boolean),
   className: t.maybe(t.String),
   style: t.maybe(t.Object),
   id: t.maybe(t.String),
@@ -46,10 +47,11 @@ export class FormField extends React.PureComponent<FormField.Props> {
     const { label, required, disabled, children, className: _className, fieldId, viewProps: _viewProps, horizontal } = this.props;
     const className = cx('form-field', _className, { 'is-disabled': disabled, 'is-required': required, 'is-horizontal': horizontal });
     const viewProps = {
-      column: true,
       grow: !horizontal,
+      column: !horizontal,
       ..._viewProps,
-      className
+      className,
+      style: horizontal ? { flexDirection: 'row-reverse' } as React.CSSProperties : undefined
     };
 
     return (
